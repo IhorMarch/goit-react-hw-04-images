@@ -4,7 +4,8 @@ import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
 import { Modal } from './Modal/Modal';
-import { serviceSearch} from './API';
+import { serviceSearch } from './API';
+import { perPage} from './API';
 import { useEffect, useState } from 'react';
 
 import Notiflix from 'notiflix';
@@ -19,8 +20,6 @@ const [query, SetQuery] = useState('');
   const [images, SetImages] = useState([]);
   const [page, SetPage] = useState(1);
   const [loading, SetLoading] = useState(false);
-  const [error, SetError] = useState(null);
-  const [perPage, SetPerpage] = useState(12);
 const [total, SetTotal] = useState('');
 const [largeImg, SetLargeImg] = useState('');
 const [allpages, SetAllpages] = useState('');
@@ -34,7 +33,7 @@ const [showModal, setShowModal] = useState(false);
     async function addImg() {
       try {
         SetLoading(true);
-        SetError('');
+   
         const data = await serviceSearch(query, page)
         const imgArr = data.hits;
 
@@ -50,7 +49,7 @@ const [showModal, setShowModal] = useState(false);
 
 
       } catch (error) {
-        SetError(error.message);
+       
          return Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
       } finally {
         SetLoading(false);
@@ -59,7 +58,7 @@ const [showModal, setShowModal] = useState(false);
 
      
     addImg();
-  }, [query,page,perPage]);
+  }, [query,page]);
 
 
     const handleSubmit = query => {
