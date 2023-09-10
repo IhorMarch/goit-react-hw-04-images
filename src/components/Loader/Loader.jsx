@@ -10,7 +10,7 @@ export const Loader = () => {
         <Hourglass
   visible={true}
   height="80"
-  width="80"
+  width="81"
   ariaLabel="hourglass-loading"
   wrapperStyle={{}}
   wrapperClass=""
