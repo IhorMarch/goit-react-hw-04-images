@@ -8,7 +8,7 @@ export const ImageGallery = ({ images,onOpen }) => {
     <List>
 {images.map(image => (
        
-          <ImageGalleryItem key={image.id} image={image} onOpen={onOpen} />
+  <ImageGalleryItem key={image.id} image={image} onOpen={onOpen} />
         
       ))}
 
